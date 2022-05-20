@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все кандидаты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Все кандидаты</h1>
+<div>
+    {% for candidate in candidates %}
+    <p>Кандидат <a href="/candidates/{{ candidate['id'] }}" target="_blank"> {{ candidate['name'] }} </a> </p>
+    <hr>
+{% endfor %}
+    <br>
+</div>
+    <div>
+        <p>Поиск по имени</p>
+        <form action="/search/">
+            <input type="text" name="name">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
