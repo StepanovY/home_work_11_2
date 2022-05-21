@@ -7,11 +7,15 @@
 </head>
 <body>
 <div>
-    <h1>Имя кандидата <em>{{ candidate['name'] }}</em></h1>
-    <hr>
-    <img src="{{ candidate['picture'] }}" alt="здесь должна быть картинка">
-    <p>Позиция кандидата: {{ candidate['position'] }}</p>
-    <p>Навыки кандидата: {{ candidate['skills'] }}</p>
+    {% if candidate['name'] %}
+        <h1>Имя кандидата <em>{{ candidate['name'] }}</em></h1>
+        <hr>
+        <img src="{{ candidate['picture'] }}" alt="здесь должна быть картинка">
+        <p>Позиция кандидата: {{ candidate['position'] }}</p>
+        <p>Навыки кандидата: {{ candidate['skills'] }}</p>
+    {% else %}
+        <p>Кандидат не найден</p>
+    {% endif %}
 </div>
 </body>
 </html>
